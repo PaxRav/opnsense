@@ -59,7 +59,7 @@ class OPNsenseAPIService {
                                     $url = $url . '/' . $endPoint;
                                     $options = [
                                         'headers' => [
-                                            'auth' =>  'Basic '.$apiKey:$apiSecret,
+                                            'auth' =>  'Basic '. base64_encode($apiKey:$apiSecret),
                                         ],
                                     ];
                         

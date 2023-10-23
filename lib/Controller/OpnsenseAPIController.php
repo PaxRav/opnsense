@@ -43,11 +43,28 @@ class OpnsenseAPIController extends Controller {
      * 
      */
     public function getTreeInfo(string $userId): DataResponse{
-        $jsonfile = $this->opnsenseAPIService->getMenuTree($this->userId);
-        if (isset($jsonfile['error'])) {
+        $jsonresponse = $this->opnsenseAPIService->getMenuTree($this->userId);
+        if (isset($jsonresponse['error'])) {
 			return new DataResponse($result, Http::STATUS_BAD_REQUEST);
 		} else {
-			return new DataResponse($result);
+			$menuID = array_map(function ($item) {
+				return $item['Id'];
+			}, $jsonresponse);
+			$menuOrder = array_map(function ($item) {
+				return $item['Order'];
+			}, $jsonresponse);
+			$childrenId = array_map(function ($item) {
+				return array_map(function ($child) {
+					return $child['Id'];
+				}, $item['Children']);
+			}, $jsonresponse);
+			$response = array(
+				'menuID' => $menuID,
+				'menuOrder' => $menuOrder,
+				'ChildrenId' => $childrenId,
+			);
+	
+			return new DataResponse($response);
 		}
     }
 }
