@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <!--
+    SPDX-FileCopyrightText: Diego Munoz <dmuno072@fiu.edu>
+    SPDX-License-Identifier: CC0-1.0
+    -->
+    <id>opnsense</id>
+    <name>O P Nsense</name>
+    <summary>OPNsense App</summary>
+    <description><![CDATA[test]]></description>
+    <version>0.0.1</version>
+    <licence>agpl</licence>
+    <author mail="dmuno072@fiu.edu" >Diego Munoz</author>
+    <namespace>OPNsense</namespace>
+    <category>tools</category>
+    <bugs>http://test.com</bugs>
+    <dependencies>
+        <nextcloud min-version="27" max-version="28"/>
+    </dependencies>
+    <navigations>
+        <navigation>
+            <name>O P Nsense</name>
+            <route>opnsense.page.index</route>
+        </navigation>
+    </navigations>
+</info>
