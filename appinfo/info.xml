@@ -20,8 +20,11 @@
     </dependencies>
     <navigations>
         <navigation>
+            <id>opnsense</id>
             <name>O P Nsense</name>
             <route>opnsense.page.index</route>
+            <icon>app.svg</icon>
+            <order>8</order>
         </navigation>
     </navigations>
 </info>
